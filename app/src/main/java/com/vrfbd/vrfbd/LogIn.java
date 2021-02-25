@@ -3,16 +3,19 @@ package com.vrfbd.vrfbd;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.webkit.PermissionRequest;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -30,6 +33,7 @@ public class LogIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
+        ProgressBar progressBar = findViewById(R.id.progressBarId);
         webView = findViewById(R.id.LogInWebId);
 
         if (isOnline()) {
@@ -46,7 +50,22 @@ public class LogIn extends AppCompatActivity {
             webSettings.setAllowFileAccess(true);
             webSettings.setSupportZoom(true);
 
-            webView.setWebViewClient(new WebViewClient());
+            webView.setWebViewClient(new WebViewClient() {
+                @Override
+                public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                    super.onPageStarted(view, url, favicon);
+                    progressBar.setVisibility(View.VISIBLE);
+                    setTitle("Loading");
+                }
+
+                @Override
+                public void onPageFinished(WebView view, String url) {
+                    super.onPageFinished(view, url);
+                    progressBar.setVisibility(View.GONE);
+                    setTitle(view.getTitle());
+
+                }
+            });
 
             webView.setWebChromeClient(new WebChromeClient() {
                 // Grant permissions for cam

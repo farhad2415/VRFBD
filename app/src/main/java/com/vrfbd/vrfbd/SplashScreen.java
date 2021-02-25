@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashScreen extends AppCompatActivity {
 
-    private static final int splashTimeOut = 5000;
+    private static final int splashTimeOut = 3000;
     private TextView text;
     private ImageView image;
 

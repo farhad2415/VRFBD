@@ -6,6 +6,7 @@
     android:layout_gravity="center"
     android:orientation="vertical"
     android:padding="5dp"
+    android:background="#0F0325"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -14,6 +15,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/back2"
@@ -23,25 +25,14 @@
             android:text="Welcome to VRFBD"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="15pt"></TextView>
+            android:textSize="12pt"></TextView>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#17033C"
+
             android:src="@drawable/image"></ImageView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/back2"
-            android:gravity="center_horizontal"
-            android:padding="10dp"
-            android:shadowColor="@color/black"
-            android:text="বৈধভাবে টাকা আয় করতে আমাদের সাথেই থাকুন!"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="10pt"></TextView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -78,51 +69,28 @@
 
 
     </LinearLayout>
-    <!--    <LinearLayout-->
-    <!--        android:gravity="bottom"-->
-    <!--        android:weightSum="2"-->
-    <!--        android:layout_marginTop="10dp"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginBottom="15dp">-->
-    <!--    <TextView-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="This App Is Maintance By\nMd Farhad Hossain"-->
-    <!--        android:background="@drawable/back2"-->
-    <!--        android:shadowColor="@color/black"-->
-    <!--        android:padding="10dp"-->
-    <!--        android:textSize="10pt"-->
-    <!--        android:textAlignment="center"-->
-    <!--        android:textColor="#FFFFFF"-->
-    <!--        android:textStyle="bold"-->
-    <!--        android:gravity="center_horizontal">-->
-    <!--    </TextView>-->
-    <!--    </LinearLayout>-->
-    <!--    -->
-    <!--<LinearLayout-->
-    <!--    android:weightSum="2"-->
-    <!--    android:layout_width="match_parent"-->
-    <!--    android:layout_height="match_parent"-->
-    <!--    android:orientation="horizontal">-->
 
-    <!--    <ImageView-->
-    <!--        android:layout_weight="1"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:background="@drawable/back2"-->
-    <!--        android:src="@drawable/fb">-->
-    <!--    </ImageView>-->
-    <!--    <ImageView-->
-    <!--        android:layout_weight="1"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:background="@drawable/back2"-->
-    <!--        android:src="@drawable/ic_baseline_add_ic_call_24">-->
-    <!--    </ImageView>-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/back2"
+            android:gravity="bottom"
+            android:padding="10dp"
+            android:shadowColor="@color/black"
+            android:text="বৈধভাবে টাকা আয় করতে আমাদের সাথেই থাকুন!"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="10pt"
+            tools:ignore="RtlCompat"></TextView>
+    </RelativeLayout>
 
-    <!--</LinearLayout>-->
 
 </LinearLayout>
-
