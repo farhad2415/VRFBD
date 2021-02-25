@@ -19,7 +19,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SignUp extends AppCompatActivity {
-    static final String url = "\"https://www.vrfbd.com/signup\"";
     private static final String TAG = "tag";
     WebView webView;
     AlertDialog.Builder alertDialog;
@@ -72,7 +71,7 @@ public class SignUp extends AppCompatActivity {
 
             });
 
-            webView.loadUrl(url);
+            webView.loadUrl("https://www.vrfbd.com/signup");
 
         } else {
             try {
