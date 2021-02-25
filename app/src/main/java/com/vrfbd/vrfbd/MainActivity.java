@@ -1,5 +1,6 @@
 package com.vrfbd.vrfbd;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -41,6 +42,33 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    public void onBackPressed(){
+        android.app.AlertDialog.Builder alertDialogBuilder = new android.app.AlertDialog.Builder(MainActivity.this);
+        alertDialogBuilder.setIcon(R.drawable.ic_baseline_warning_24);
+        alertDialogBuilder.setTitle("Exit");
+        alertDialogBuilder.setMessage("Are you want to Exit!");
+        alertDialogBuilder.setCancelable(false);
+
+        alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+
+            }
+        });
+
+        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        android.app.AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
 
     }
 }

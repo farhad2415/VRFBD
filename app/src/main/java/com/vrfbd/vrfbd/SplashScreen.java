@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity2 extends AppCompatActivity {
+public class SplashScreen extends AppCompatActivity {
 
     private static int splashTimeOut = 3000;
     private TextView text;
