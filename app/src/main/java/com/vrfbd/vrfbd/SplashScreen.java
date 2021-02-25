@@ -1,7 +1,5 @@
 package com.vrfbd.vrfbd;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,9 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class SplashScreen extends AppCompatActivity {
 
-    private static int splashTimeOut = 3000;
+    private static final int splashTimeOut = 5000;
     private TextView text;
     private ImageView image;
 
