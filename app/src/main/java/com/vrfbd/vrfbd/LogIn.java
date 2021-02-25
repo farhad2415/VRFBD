@@ -1,11 +1,15 @@
 package com.vrfbd.vrfbd;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.webkit.PermissionRequest;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -31,9 +35,43 @@ public class LogIn extends AppCompatActivity {
         if (isOnline()) {
 
             WebSettings webSettings = webView.getSettings();
+
+            webSettings.setAllowFileAccessFromFileURLs(true);
+            webSettings.setAllowUniversalAccessFromFileURLs(true);
+            webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
             webSettings.setJavaScriptEnabled(true);
+            webSettings.setDomStorageEnabled(true);
+            webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+            webSettings.setBuiltInZoomControls(true);
+            webSettings.setAllowFileAccess(true);
+            webSettings.setSupportZoom(true);
 
             webView.setWebViewClient(new WebViewClient());
+
+            webView.setWebChromeClient(new WebChromeClient() {
+                // Grant permissions for cam
+                @Override
+                public void onPermissionRequest(final PermissionRequest request) {
+                    Log.d(TAG, "onPermissionRequest");
+                    LogIn.this.runOnUiThread(new Runnable() {
+                        @TargetApi(Build.VERSION_CODES.M)
+                        @Override
+                        public void run() {
+                            Log.d(TAG, request.getOrigin().toString());
+                            if (request.getOrigin().toString().equals("file:///")) {
+                                Log.d(TAG, "GRANTED");
+                                request.grant(request.getResources());
+                            } else {
+                                Log.d(TAG, "DENIED");
+                                request.deny();
+                            }
+                        }
+                    });
+                }
+
+
+            });
+
             webView.loadUrl(url);
 
         } else {
