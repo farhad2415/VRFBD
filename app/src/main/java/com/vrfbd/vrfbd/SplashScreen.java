@@ -29,18 +29,17 @@ public class SplashScreen extends AppCompatActivity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                     finish();
                 }
-            },splashTimeOut);
-        }catch (Exception e)
-        {
+            }, splashTimeOut);
+        } catch (Exception e) {
             Toast.makeText(this, "This Application Not Support your Device", Toast.LENGTH_SHORT).show();
         }
 
-        Animation myanim = AnimationUtils.loadAnimation(this,R.anim.my_splash_animation);
+        Animation myanim = AnimationUtils.loadAnimation(this, R.anim.my_splash_animation);
         image.startAnimation(myanim);
         text.startAnimation(myanim);
     }
-    }
+}

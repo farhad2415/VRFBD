@@ -3,11 +3,13 @@ package com.vrfbd.vrfbd;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.webkit.PermissionRequest;
@@ -95,6 +97,7 @@ public class SignUp extends AppCompatActivity {
             webView.loadUrl("https://www.vrfbd.com/signup");
 
         } else {
+            SignUp.this.startActivity(new Intent(Settings.ACTION_WIRELESS_SETTINGS));
             try {
 
                 alertDialog = new AlertDialog.Builder(SignUp.this);
@@ -132,10 +135,10 @@ public class SignUp extends AppCompatActivity {
 
     public boolean isOnline() {
         ConnectivityManager conMgr = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo[] netInfo = conMgr.getAllNetworkInfo();
+        NetworkInfo netInfo = conMgr.getActiveNetworkInfo();
 
 
-        if (netInfo == null) {
+        if (netInfo == null || !netInfo.isConnected() || !netInfo.isAvailable()) {
             Toast.makeText(getApplicationContext(), "No Internet connection!", Toast.LENGTH_LONG).show();
             return false;
         }

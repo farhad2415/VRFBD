@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
     Button Login, Signup;
     private WebView webView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void onBackPressed(){
+    public void onBackPressed() {
         android.app.AlertDialog.Builder alertDialogBuilder = new android.app.AlertDialog.Builder(MainActivity.this);
         alertDialogBuilder.setIcon(R.drawable.ic_baseline_warning_24);
         alertDialogBuilder.setTitle("Exit!");
