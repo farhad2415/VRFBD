@@ -3,9 +3,11 @@ package com.vrfbd.vrfbd;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
     Button Login, Signup;
     private WebView webView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +22,13 @@ public class MainActivity extends AppCompatActivity {
 
         Login = findViewById(R.id.LogInId);
         Signup = findViewById(R.id.SignUpId);
+        TextView textView = this.findViewById(R.id.textview_marquee);
+
+        textView.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+        textView.setText("বৈধভাবে টাকা আয় করতে আমাদের সাথেই থাকুন!");
+        textView.setVisibility(View.VISIBLE);
+        textView.setSelected(true);
+        textView.setSingleLine(true);
 
 
         Login.setOnClickListener(new View.OnClickListener() {
