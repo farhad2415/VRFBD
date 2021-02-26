@@ -3,13 +3,11 @@ package com.vrfbd.vrfbd;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.webkit.PermissionRequest;
@@ -48,19 +46,22 @@ public class SignUp extends AppCompatActivity {
             webSettings.setJavaScriptEnabled(true);
             webSettings.setDomStorageEnabled(true);
             webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
-            webSettings.setBuiltInZoomControls(true);
             webSettings.setAllowFileAccess(true);
             webSettings.setSupportZoom(true);
 
-            webView.setWebViewClient(new WebViewClient() {
-                                         @Override
-                                         public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                                             super.onPageStarted(view, url, favicon);
-                                             progressBar.setVisibility(View.VISIBLE);
-                                             setTitle("Loading");
-                                         }
+            webView.getSettings().setGeolocationEnabled(true);
+            webView.setSoundEffectsEnabled(true);
+            webView.getSettings().setAppCacheEnabled(true);
 
-                                         @Override
+            webView.setWebViewClient(new WebViewClient() {
+                @Override
+                public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                    super.onPageStarted(view, url, favicon);
+                    progressBar.setVisibility(View.VISIBLE);
+                    setTitle("Loading");
+                }
+
+                @Override
                                          public void onPageFinished(WebView view, String url) {
                                              super.onPageFinished(view, url);
                                              progressBar.setVisibility(View.GONE);
@@ -97,7 +98,6 @@ public class SignUp extends AppCompatActivity {
             webView.loadUrl("https://www.vrfbd.com/signup");
 
         } else {
-            SignUp.this.startActivity(new Intent(Settings.ACTION_WIRELESS_SETTINGS));
             try {
 
                 alertDialog = new AlertDialog.Builder(SignUp.this);

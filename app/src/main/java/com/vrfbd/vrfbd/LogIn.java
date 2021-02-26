@@ -46,9 +46,12 @@ public class LogIn extends AppCompatActivity {
             webSettings.setJavaScriptEnabled(true);
             webSettings.setDomStorageEnabled(true);
             webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
-            webSettings.setBuiltInZoomControls(true);
             webSettings.setAllowFileAccess(true);
             webSettings.setSupportZoom(true);
+
+            webView.getSettings().setGeolocationEnabled(true);
+            webView.setSoundEffectsEnabled(true);
+            webView.getSettings().setAppCacheEnabled(true);
 
             webView.setWebViewClient(new WebViewClient() {
                 @Override
@@ -131,10 +134,10 @@ public class LogIn extends AppCompatActivity {
 
     public boolean isOnline() {
         ConnectivityManager conMgr = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo[] netInfo = conMgr.getAllNetworkInfo();
+        NetworkInfo netInfo = conMgr.getActiveNetworkInfo();
 
 
-        if (netInfo == null) {
+        if (netInfo == null || !netInfo.isConnected() || !netInfo.isAvailable()) {
             Toast.makeText(getApplicationContext(), "No Internet connection!", Toast.LENGTH_LONG).show();
             return false;
         }
