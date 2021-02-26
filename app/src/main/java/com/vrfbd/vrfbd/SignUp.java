@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 
 public class SignUp extends AppCompatActivity {
     static final String url = "https://www.vrfbd.com/signup";
@@ -99,17 +99,6 @@ public class SignUp extends AppCompatActivity {
 
             webView.loadUrl(url);
 
-            //SwipeRefreshLayout
-            final SwipeRefreshLayout finalMySwipeRefreshLayout1;
-            finalMySwipeRefreshLayout1 = findViewById(R.id.swiperefreshsu);
-            finalMySwipeRefreshLayout1.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-                @Override
-                public void onRefresh() {
-                    // This method performs the actual data-refresh operation.
-                    // The method calls setRefreshing(false) when it's finished.
-                    webView.loadUrl(webView.getUrl());
-                }
-            });
 
         } else {
             try {

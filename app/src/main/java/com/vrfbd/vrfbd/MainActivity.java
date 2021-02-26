@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         TextView textView = this.findViewById(R.id.textview_marquee);
 
         textView.setEllipsize(TextUtils.TruncateAt.MARQUEE);
-        textView.setText("বৈধভাবে টাকা আয় করতে আমাদের সাথেই থাকুন!");
+        textView.setText("\t\t\t\t\t\tবৈধভাবে টাকা আয় করতে আমাদের সাথেই থাকুন!");
         textView.setVisibility(View.VISIBLE);
         textView.setSelected(true);
         textView.setSingleLine(true);

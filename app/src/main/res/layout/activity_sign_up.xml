@@ -16,20 +16,14 @@
         android:layout_gravity="center"
         android:scrollbarSize="20dp" />
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swiperefresh"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <WebView
+    <WebView
             android:id="@+id/SignUpWebId"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentBottom="true">
 
         </WebView>
-
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
 </LinearLayout>
