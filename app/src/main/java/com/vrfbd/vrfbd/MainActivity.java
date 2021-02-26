@@ -56,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed(){
         android.app.AlertDialog.Builder alertDialogBuilder = new android.app.AlertDialog.Builder(MainActivity.this);
         alertDialogBuilder.setIcon(R.drawable.ic_baseline_warning_24);
-        alertDialogBuilder.setTitle("Exit");
-        alertDialogBuilder.setMessage("Are you want to Exit!");
+        alertDialogBuilder.setTitle("Exit!");
+        alertDialogBuilder.setMessage("Are you sure to Exit now?");
         alertDialogBuilder.setCancelable(false);
 
         alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
